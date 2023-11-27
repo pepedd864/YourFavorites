@@ -1,0 +1,36 @@
+{
+  "name": "your-favorites-browser-plugin",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "build-only": "vite build -c vite.config.ts && vite build -c vite.content.config.ts && vite build -c vite.background.config.ts && node build.js",
+    "preview": "vite preview -c vite.popup.config.js",
+    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
+  },
+  "dependencies": {
+    "@morev/vue-transitions": "^2.3.6",
+    "@vueuse/core": "^10.6.1",
+    "alova": "^2.13.2",
+    "ant-design-vue": "4.0.6",
+    "dotenv": "^16.3.1",
+    "pinia": "^2.1.7",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.5.0",
+    "npm-run-all2": "^6.1.1",
+    "sass": "^1.69.5",
+    "unplugin-vue-components": "^0.25.2",
+    "vite": "^5.0.0",
+    "@tsconfig/node18": "^18.2.2",
+    "@vue/tsconfig": "^0.4.0",
+    "@types/node": "^18.18.5",
+    "typescript": "~5.2.0",
+    "vue-tsc": "^1.8.19",
+    "prettier": "^3.1.0"
+  }
+}
