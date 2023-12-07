@@ -39,7 +39,7 @@ const { loading, send, onSuccess } = useRequest(
 
 onSuccess((event) => {
   const data = event.data as any
-  console.log('data', data);
+  console.log('data', data)
   if (data) {
     userStore.token = data.token
     userStore.userInfo = data.userVO
@@ -77,9 +77,9 @@ nextTick(() => {
 
 <template>
   <div class="login">
-    <img class="logo" src="./logo.png" alt="" />
-    <div class="title">书签管理器插件</div>
-    <a-form class="login-form" ref="formRef" :model="loginForm" :rules="rules">
+    <img alt="" class="logo" src="./logo.png" />
+    <div class="title">收藏夹管理器插件</div>
+    <a-form ref="formRef" :model="loginForm" :rules="rules" class="login-form">
       <a-form-item name="username">
         <a-input v-model:value="loginForm.username" placeholder="账户: admin">
           <!--<template #prefix>-->
@@ -97,8 +97,8 @@ nextTick(() => {
           <!--</template>-->
         </a-input-password>
       </a-form-item>
-      <a-row :gutter="16" v-if="captchaEnabled">
-        <a-col class="gutter-row" :span="16">
+      <a-row v-if="captchaEnabled" :gutter="16">
+        <a-col :span="16" class="gutter-row">
           <a-form-item name="code">
             <a-input v-model:value="loginForm.code" placeholder="验证码">
               <!--<template #prefix>-->
@@ -107,12 +107,12 @@ nextTick(() => {
             </a-input>
           </a-form-item>
         </a-col>
-        <a-col class="gutter-row" :span="8">
+        <a-col :span="8" class="gutter-row">
           <img
-            class="getCaptcha"
             :src="codeUrl"
-            @click="getCode"
+            class="getCaptcha"
             style="cursor: pointer"
+            @click="getCode"
           />
         </a-col>
       </a-row>
@@ -128,9 +128,9 @@ nextTick(() => {
       <!--</a-form-item>-->
       <a-form-item>
         <a-button
+          :loading="loading"
           htmlType="submit"
           style="width: 100%"
-          :loading="loading"
           @click="login"
         >
           确定

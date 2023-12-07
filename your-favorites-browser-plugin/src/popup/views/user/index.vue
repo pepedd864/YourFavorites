@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useUserStore } from '@/stores/index'
+import { useUserStore } from '@/stores'
 
 const userStore = useUserStore()
 const { username, nickname, phone, email, createTime } = userStore.userInfo
@@ -56,6 +56,9 @@ const { username, nickname, phone, email, createTime } = userStore.userInfo
     color: #fff;
     border-bottom: 1px #fff solid;
     justify-content: space-between;
+    font:
+      16px 'Microsoft YaHei',
+      sans-serif;
   }
 }
 </style>

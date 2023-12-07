@@ -37,9 +37,9 @@ watch(isShowDialog, () => {
         }
       "
     >
-      <div class="loading">
-        <a-spin />
-      </div>
+      <!--<div class="loading">-->
+      <!--  <a-spin />-->
+      <!--</div>-->
       <iframe
         id="iframe"
         src="http://localhost:3000/"

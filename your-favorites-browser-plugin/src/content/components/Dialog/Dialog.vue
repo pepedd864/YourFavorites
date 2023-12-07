@@ -101,7 +101,7 @@ const transformStyle = computed(() => {
         <component :is="originVNode" />
       </div>
     </template>
-    <template #footer> </template>
+    <template #footer></template>
   </a-modal>
 </template>
 

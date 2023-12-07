@@ -3,16 +3,23 @@ import { nextTick, ref } from 'vue'
 import { getBookmarks } from '@/background'
 import mockBookmarks from '@/popup/mock/bookmarks'
 import Dialog from '@/popup/components/Dialog/Dialog.vue'
-import { useTagsStore } from '@/stores/modules/tags'
+import { useTagsStore, useFavoritesStore } from '@/stores'
 
 const isShowDialog = ref(false)
 const bookmarks = ref()
 const tagsStore = useTagsStore()
+const favoritesStore = useFavoritesStore()
 let tags = []
+let favorites = []
+
+
+
 nextTick(async () => {
-  if (import.meta.env.MODE === 'production')
+  if (import.meta.env.MODE === 'production') {
     bookmarks.value = await getBookmarks()
-  else bookmarks.value = mockBookmarks
+    bookmarks.value = bookmarks.value[0].children
+  } else bookmarks.value = mockBookmarks[0].children
+
 })
 </script>
 

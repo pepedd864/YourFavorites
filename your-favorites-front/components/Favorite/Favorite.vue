@@ -9,7 +9,9 @@ import RegisterFn from '@/components/Favorite/registerFn'
 
 let treeData: TreeProps['treeData'] = []
 
-const favoriteData = (await (await fetch('api/favorites')).json()) as Favorites
+let favoriteData = (await (await fetch('api/favorites')).json()) as Favorites
+// @ts-ignore
+favoriteData = favoriteData[0].children
 
 function removeLeafNodes(data: any) {
   return data.map((item: any, index: number) => {
@@ -33,8 +35,8 @@ let favoritesDataSelected
 
 const selectedKeys = ref<string[]>([])
 let originalData = {
-  title: '资源',
-  desc: '资源导航',
+  title: '收藏夹',
+  desc: '收藏夹导航',
   children: [...favoriteData],
 }
 let favoriteGraph: FavoriteGraph

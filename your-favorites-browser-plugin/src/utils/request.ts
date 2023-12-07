@@ -12,9 +12,11 @@ nextTick(() => {
 })
 
 let baseURL
-if (import.meta.env.MODE === 'development') {
+let useProxy = false
+if (import.meta.env.MODE === 'development' && useProxy) {
   baseURL = import.meta.env.VITE_API_PREFIX
 } else {
+  // TODO 发布时使用这行，开发时使用VITE的代理
   baseURL = import.meta.env.VITE_API_URL
 }
 
@@ -27,8 +29,6 @@ const errCode = {
 
 // 1. 创建alova实例
 const request = createAlova({
-  // TODO 发布时使用这行，开发时使用VITE的代理
-  // baseURL: import.meta.env.VITE_API_URL,
   baseURL,
   // VueHook用于创建ref状态，包括请求状态loading、响应数据data、请求错误对象error等
   statesHook: VueHook,
@@ -37,6 +37,10 @@ const request = createAlova({
   // 全局请求拦截器
   beforeRequest(method: any) {
     if (method.config.ignoreToken) return
+
+    // cors
+    // method.config.headers['Access-Control-Allow-Origin'] = '*'
+
     if (!userStore.token) {
       message.error('请先登录')
       router.push('/login')

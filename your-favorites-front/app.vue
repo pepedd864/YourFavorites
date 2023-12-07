@@ -2,10 +2,10 @@
 import '@/assets/styles/style.scss'
 
 useSeoMeta({
-  title: '资源导航',
-  description: '整合作者最常用和最实用的资源导航',
+  title: '收藏夹导航',
+  description: '管理、分类并可视化你的浏览器收藏夹，快捷导航至收藏夹网站',
   // 搜索关键词
-  keywords: '资源导航 编程 资源',
+  keywords: '收藏夹 导航 编程 资源',
 })
 </script>
 
