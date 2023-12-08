@@ -4,7 +4,7 @@
 if (chrome.runtime?.onInstalled) {
   chrome.runtime.onInstalled.addListener(function() {
     // 默认先禁止Page Action。如果不加这一句，则无法生效下面的规则
-    chrome.action.disable();
+    chrome.action.disable()
     chrome.declarativeContent.onPageChanged.removeRules(undefined, () => {
       // 设置规则
       let rule = {
@@ -20,28 +20,26 @@ if (chrome.runtime?.onInstalled) {
               // hostEquals: 'element-plus.org',
               // 适配https协议的网页
               // schemes: ['https'],
-            }
-          })
+            },
+          }),
         ],
-        actions: [
-          new chrome.declarativeContent.ShowAction()
-        ]
-      };
+        actions: [new chrome.declarativeContent.ShowAction()],
+      }
       // 整合所有规则
-      const rules = [rule];
+      const rules = [rule]
       // 执行规则
-      chrome.declarativeContent.onPageChanged.addRules(rules);
-    });
-  });
+      chrome.declarativeContent.onPageChanged.addRules(rules)
+    })
+  })
 }
 
 
 // 导出获取书签的函数
 export function getBookmarks() {
   return new Promise((resolve, reject) => {
-    if (chrome.bookmarks?.getTree === undefined) reject("无法获取书签");
-    chrome.bookmarks.getTree(function(bookmarkTreeNodes) {
-      resolve(bookmarkTreeNodes);
-    });
-  });
+    if (chrome.bookmarks?.getTree === undefined) reject('无法获取书签')
+    chrome.bookmarks.getTree(function (bookmarkTreeNodes) {
+      resolve(bookmarkTreeNodes)
+    })
+  })
 }

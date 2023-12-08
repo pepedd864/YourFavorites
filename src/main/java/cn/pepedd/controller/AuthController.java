@@ -21,6 +21,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import static cn.pepedd.constants.Constants.CAPTCHA_ENABLED;
+
 /**
  * 登录控制器
  *
@@ -70,7 +72,7 @@ public class AuthController {
 
     // 读取配置文件是否开启验证码，这里默认开启
     // boolean captchaEnabled = configService.selectCaptchaEnabled();
-    boolean captchaEnabled = true;
+    boolean captchaEnabled = CAPTCHA_ENABLED;
     captcha.put("captchaEnabled", captchaEnabled);
     if (!captchaEnabled) {
       return Result.success(captcha);

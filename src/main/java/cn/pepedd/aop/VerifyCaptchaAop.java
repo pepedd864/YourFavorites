@@ -12,6 +12,8 @@ import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
 
+import static cn.pepedd.constants.Constants.CAPTCHA_ENABLED;
+
 /**
  * 验证码验证切面
  *
@@ -34,6 +36,7 @@ public class VerifyCaptchaAop {
    */
   @Before("@annotation(verifyCaptcha)")
   public void verifyCaptcha(JoinPoint joinPoint, VerifyCaptcha verifyCaptcha) {
+    if (!CAPTCHA_ENABLED) return;
     log.info("校验验证码...");
 
     // 分割参数 0$code.n1.n2  0$uuid.n1.n2 为 0 code.n1.n2; 0 uuid.n1.n2 两个部分

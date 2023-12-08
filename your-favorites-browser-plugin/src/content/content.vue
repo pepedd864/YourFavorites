@@ -30,7 +30,7 @@ watch(isShowDialog, () => {
     </float-button>
     <Dialog
       :visible="isShowDialog"
-      title="书签思维导图"
+      title="收藏夹思维导图"
       @on-close="
         () => {
           isShowDialog = false

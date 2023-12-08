@@ -34,6 +34,8 @@ const modalState = reactive({
     :title="modalState.title"
     centered
     destroy-on-close
+    width="100%"
+    wrap-class-name="full-modal"
     @cancel="modalState.handleCancel"
     @ok="modalState.handleOk"
   >
@@ -43,4 +45,24 @@ const modalState = reactive({
   </a-modal>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.full-modal {
+  .ant-modal {
+    max-width: 100%;
+    top: 0;
+    padding-bottom: 0;
+    margin: 0;
+  }
+
+  .ant-modal-content {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh);
+    border-radius: 0;
+  }
+
+  .ant-modal-body {
+    flex: 1;
+  }
+}
+</style>

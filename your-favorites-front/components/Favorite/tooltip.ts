@@ -25,4 +25,4 @@ const tooltip = new G6.Tooltip({
   },
 })
 
-export default tooltip;
+export default tooltip

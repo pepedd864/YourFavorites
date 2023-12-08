@@ -28,7 +28,7 @@ const userStore = useUserStore()
 // 注：import('ant-design-vue/es')['InputPassword'] 为 unplugin-vue-components 解析的引用
 const pwdInputRef = ref<any>(null)
 
-const { loading, send, onSuccess } = useRequest(
+const { loading, send, onSuccess, onError } = useRequest(
   // request.Post('https://www.fastmock.site/mock/34475c3a26f32e7b37e76af47125375f/mockApi/login'),
   loginApi(loginForm),
   {
@@ -47,6 +47,10 @@ onSuccess((event) => {
     const { redirect } = router.currentRoute.value.query
     router.push((redirect as string) || '/')
   }
+})
+
+onError((event) => {
+  getCode()
 })
 
 async function login() {

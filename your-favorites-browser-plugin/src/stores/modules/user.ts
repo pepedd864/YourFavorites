@@ -9,16 +9,22 @@ export type UserInfo = {
   createTime?: string
 }
 
-export const useUserStore = defineStore('userStore', () => {
-  const token = ref<string>('')
-  const userInfo = ref<UserInfo>({})
-  const logout = () => {
-    token.value = ''
-    userInfo.value = {}
-  }
-  return {
-    token,
-    userInfo,
-    logout,
-  }
-})
+export const useUserStore = defineStore(
+  'userStore',
+  () => {
+    const token = ref<string>('')
+    const userInfo = ref<UserInfo>({})
+    const logout = () => {
+      token.value = ''
+      userInfo.value = {}
+    }
+    return {
+      token,
+      userInfo,
+      logout,
+    }
+  },
+  {
+    persist: true,
+  },
+)

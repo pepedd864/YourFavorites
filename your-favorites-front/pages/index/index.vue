@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import ua from '~/utils/ua'
+import { removeUrlPrefix } from '~/utils/utils'
 
+console.log(removeUrlPrefix('https://www.baidu.com/'))
 let uaInfo = ua()
 </script>
 

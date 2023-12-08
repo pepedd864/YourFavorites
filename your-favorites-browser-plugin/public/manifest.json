@@ -1,7 +1,7 @@
 {
-  "name": "书签管理器插件",
+  "name": "收藏夹管理器插件",
   "version": "0.0.0",
-  "description": "可视化管理书签插件，思维导图模式，随时导航",
+  "description": "可视化管理浏览器收藏夹插件，思维导图模式，随时导航",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"

@@ -1,6 +1,6 @@
-import fs from "fs";
-import path from "path";
-import dotenv from "dotenv";
+import fs from 'fs'
+import path from 'path'
+import dotenv from 'dotenv'
 
 // 加载环境变量
 dotenv.config()
@@ -61,4 +61,4 @@ copyDirectory(contentOutDir, outDir)
 copyDirectory(backgroundOutDir, outDir)
 // 删除源目录
 deleteDirectory(contentOutDir)
-deleteDirectory(backgroundOutDir);
+deleteDirectory(backgroundOutDir)

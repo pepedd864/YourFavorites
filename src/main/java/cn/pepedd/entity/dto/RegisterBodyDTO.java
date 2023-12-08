@@ -4,7 +4,6 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
@@ -26,8 +25,6 @@ public class RegisterBodyDTO implements Serializable {
   private String phone;
   @Email(message = "邮箱格式不正确")
   private String email;
-  @NotBlank(message = "验证码不能为空")
   private String code;
-  @NotBlank(message = "验证码uuid不能为空")
   private String uuid;
 }

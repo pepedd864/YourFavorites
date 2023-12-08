@@ -293,6 +293,6 @@ class UA {
 }
 
 export default function(agent = navigator.userAgent) {
-  const ua: UA = new UA(agent);
-  return ua.info;
+  const ua: UA = new UA(agent)
+  return ua.info
 }

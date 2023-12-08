@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@ant-design/icons-vue':
+    specifier: ^7.0.1
+    version: registry.npmmirror.com/@ant-design/icons-vue@7.0.1(vue@3.3.8)
   '@morev/vue-transitions':
     specifier: ^2.3.6
     version: registry.npmmirror.com/@morev/vue-transitions@2.3.6(vue@3.3.8)
@@ -23,6 +26,9 @@ dependencies:
   pinia:
     specifier: ^2.1.7
     version: registry.npmmirror.com/pinia@2.1.7(typescript@5.2.2)(vue@3.3.8)
+  pinia-plugin-persistedstate:
+    specifier: ^3.2.0
+    version: registry.npmmirror.com/pinia-plugin-persistedstate@3.2.0(pinia@2.1.7)
   vue:
     specifier: ^3.3.4
     version: registry.npmmirror.com/vue@3.3.8(typescript@5.2.2)
@@ -2148,6 +2154,17 @@ packages:
     engines: { node: '>=0.10' }
     hasBin: true
     dev: true
+
+  registry.npmmirror.com/pinia-plugin-persistedstate@3.2.0(pinia@2.1.7):
+    resolution: { integrity: sha512-tZbNGf2vjAQcIm7alK40sE51Qu/m9oWr+rEgNm/2AWr1huFxj72CjvpQcIQzMknDBJEkQznCLAGtJTIcLKrKdw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/pinia-plugin-persistedstate/-/pinia-plugin-persistedstate-3.2.0.tgz }
+    id: registry.npmmirror.com/pinia-plugin-persistedstate/3.2.0
+    name: pinia-plugin-persistedstate
+    version: 3.2.0
+    peerDependencies:
+      pinia: ^2.0.0
+    dependencies:
+      pinia: registry.npmmirror.com/pinia@2.1.7(typescript@5.2.2)(vue@3.3.8)
+    dev: false
 
   registry.npmmirror.com/pinia@2.1.7(typescript@5.2.2)(vue@3.3.8):
     resolution: { integrity: sha512-+C2AHFtcFqjPih0zpYuvof37SFxMQ7OEG2zV9jRI12i9BOy3YQVAHwdKtyyc8pDcDyIc33WCIsZaCFWU7WWxGQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/pinia/-/pinia-2.1.7.tgz }

@@ -2,7 +2,7 @@ import { createAlova } from 'alova'
 import { nextTick } from 'vue'
 import GlobalFetch from 'alova/GlobalFetch'
 import VueHook from 'alova/vue'
-import { useUserStore } from '@/stores/index'
+import { useUserStore } from '@/stores'
 import router from '@/popup/router/index'
 import { message } from 'ant-design-vue'
 
@@ -12,7 +12,7 @@ nextTick(() => {
 })
 
 let baseURL
-let useProxy = false
+let useProxy = false // 使用VITE的代理
 if (import.meta.env.MODE === 'development' && useProxy) {
   baseURL = import.meta.env.VITE_API_PREFIX
 } else {
@@ -37,10 +37,6 @@ const request = createAlova({
   // 全局请求拦截器
   beforeRequest(method: any) {
     if (method.config.ignoreToken) return
-
-    // cors
-    // method.config.headers['Access-Control-Allow-Origin'] = '*'
-
     if (!userStore.token) {
       message.error('请先登录')
       router.push('/login')
@@ -56,7 +52,7 @@ const request = createAlova({
         json = await response.json()
       } catch (e) {
         message.error('序列化失败')
-        return null
+        throw new Error('序列化失败')
       }
       const msg = json?.msg || errCode[json?.code as keyof typeof errCode]
       if (json.code !== 200) {
@@ -64,8 +60,10 @@ const request = createAlova({
           userStore.logout()
           router.push('/login')
         }
-        if (msg) message.error(msg)
-        return null
+        if (msg) {
+          message.error(msg)
+          throw new Error(msg)
+        }
       }
       if (msg) message.success(msg)
       return json.data || json
@@ -76,4 +74,4 @@ const request = createAlova({
   },
 })
 
-export default request;
+export default request

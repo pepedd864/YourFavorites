@@ -1,7 +1,7 @@
-import "@/content/styles/style.scss";
+import '@/content/styles/style.scss'
 
-import { createApp } from "vue";
-import Content from "@/content/content.vue";
+import { createApp } from 'vue'
+import Content from '@/content/content.vue'
 
 // 创建id为CRX-container的div
 const crxApp = document.createElement('div')

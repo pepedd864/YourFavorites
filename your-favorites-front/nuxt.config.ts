@@ -4,17 +4,17 @@ export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true },
   modules: [
-    "@pinia/nuxt",
-    "@pinia-plugin-persistedstate/nuxt",
-    "@ant-design-vue/nuxt"
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
+    '@ant-design-vue/nuxt',
   ],
   devServer: {
-    port: 3000
+    port: 3000,
   },
   app: {
     head: {
       // 解决403 Forbbiden问题
-      meta: [{ name: "referrer", content: "no-referrer" }]
-    }
-  }
-});
+      meta: [{ name: 'referrer', content: 'no-referrer' }],
+    },
+  },
+})
