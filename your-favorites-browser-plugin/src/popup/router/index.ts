@@ -8,21 +8,26 @@ const routes = [
   },
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/favorite',
     component: () => import('@/popup/views/entry/index.vue'),
     children: [
       {
-        path: '/home',
-        meta: { requireAuth: true, title: '首页' },
-        component: () => import('@/popup/views/home/index.vue'),
+        path: '/favorite',
+        meta: { requireAuth: true, title: '收藏夹' },
+        component: () => import('@/popup/views/favorite/index.vue'),
+      },
+      {
+        path: '/tag',
+        meta: { requireAuth: true, title: '标签' },
+        component: () => import('@/popup/views/tag/index.vue'),
       },
       {
         path: '/user',
         meta: { requireAuth: true, title: '用户' },
         component: () => import('@/popup/views/user/index.vue'),
       },
-      { path: '', redirect: '/home' },
-      { path: '/:pathMatch(.*)', redirect: '/home' },
+      { path: '', redirect: '/favorite' },
+      { path: '/:pathMatch(.*)', redirect: '/favorite' },
     ],
   },
 ]

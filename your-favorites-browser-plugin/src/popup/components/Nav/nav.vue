@@ -31,7 +31,8 @@ const onExit = () => {
       class="top-nav"
       @tabClick="onTabChange"
     >
-      <a-tab-pane key="/home" tab="首页"></a-tab-pane>
+      <a-tab-pane key="/favorite" tab="收藏夹"></a-tab-pane>
+      <a-tab-pane key="/tag" tab="标签"></a-tab-pane>
       <a-tab-pane key="/user" tab="用户"></a-tab-pane>
     </a-tabs>
     <a-button class="btn-exit" type="primary" @click="onExit">退出</a-button>

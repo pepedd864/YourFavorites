@@ -16,7 +16,13 @@ export type Favorite = {
 }
 export const useFavoritesStore = defineStore('favoritesStore', () => {
   const favorites = ref<Favorite[]>([])
+
+  function setFavorites(data: Favorite[]) {
+    favorites.value = data
+  }
+
   return {
     favorites,
+    setFavorites,
   }
 })

@@ -15,7 +15,13 @@ export type Tag = {
 
 export const useTagsStore = defineStore('tagsStore', () => {
   const tags = ref<Tag[]>([])
+
+  function setTags(data: Tag[]) {
+    tags.value = data
+  }
+
   return {
     tags,
+    setTags,
   }
 })
